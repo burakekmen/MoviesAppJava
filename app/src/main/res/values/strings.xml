@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Movies App</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="api_key">24fcde1ac848caee603c0e9452ec10ec</string>
+
+    <string name="movie_detail_title">Title</string>
+    <string name="movie_detail_release_date">Release Date</string>
+    <string name="movie_detail_overview">Overview</string>
+    <string name="more_info">more info</string>
+
+    <string name="poster_base_url">https://image.tmdb.org/t/p/w600_and_h900_bestv2</string>
+
+</resources>
