@@ -20,7 +20,7 @@ public interface ApiInterface {
 //    @GET("genre/movie/list?api_key={api_key}&language=tr-TR")
 //    Call<GenreModel> getGenresDetail(@Path("api_key") String apiKey);
 
-    @GET("movie/{movie_id}?api_key={api_key}&language=tr-TR")
-    Call<MovieDetailModel> getMovieDetail(@Path("api_key") Integer moviId, @Path("api_key") String apiKey);
+    @GET("movie/{movie_id}?&language=tr-TR")
+    Call<MovieDetailModel> getMovieDetail(@Path("movie_id") Integer moviId, @Query("api_key") String apiKey);
 
 }

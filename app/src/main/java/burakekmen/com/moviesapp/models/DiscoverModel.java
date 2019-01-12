@@ -57,4 +57,8 @@ public class DiscoverModel {
         this.results = results;
     }
 
+    public DiscoverModel(){
+        this.results = new ArrayList<ResultModel>();
+    }
+
 }

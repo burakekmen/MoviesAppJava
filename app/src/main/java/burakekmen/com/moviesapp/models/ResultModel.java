@@ -1,5 +1,8 @@
 package burakekmen.com.moviesapp.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -10,7 +13,7 @@ import java.util.List;
  * 14.08.2018               |
  * ekmen.burak@hotmail.com  |
  ***************************/
-public class ResultModel {
+public class ResultModel implements Parcelable {
 
     @SerializedName("vote_count")
     @Expose
@@ -165,5 +168,94 @@ public class ResultModel {
 
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+
+    protected ResultModel(Parcel in) {
+        if (in.readByte() == 0) {
+            voteCount = null;
+        } else {
+            voteCount = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        byte tmpVideo = in.readByte();
+        video = tmpVideo == 0 ? null : tmpVideo == 1;
+        if (in.readByte() == 0) {
+            voteAverage = null;
+        } else {
+            voteAverage = in.readDouble();
+        }
+        title = in.readString();
+        if (in.readByte() == 0) {
+            popularity = null;
+        } else {
+            popularity = in.readDouble();
+        }
+        posterPath = in.readString();
+        originalLanguage = in.readString();
+        originalTitle = in.readString();
+        backdropPath = in.readString();
+        byte tmpAdult = in.readByte();
+        adult = tmpAdult == 0 ? null : tmpAdult == 1;
+        overview = in.readString();
+        releaseDate = in.readString();
+    }
+
+    public static final Creator<ResultModel> CREATOR = new Creator<ResultModel>() {
+        @Override
+        public ResultModel createFromParcel(Parcel in) {
+            return new ResultModel(in);
+        }
+
+        @Override
+        public ResultModel[] newArray(int size) {
+            return new ResultModel[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        if (voteCount == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(voteCount);
+        }
+        if (id == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(id);
+        }
+        parcel.writeByte((byte) (video == null ? 0 : video ? 1 : 2));
+        if (voteAverage == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeDouble(voteAverage);
+        }
+        parcel.writeString(title);
+        if (popularity == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeDouble(popularity);
+        }
+        parcel.writeString(posterPath);
+        parcel.writeString(originalLanguage);
+        parcel.writeString(originalTitle);
+        parcel.writeString(backdropPath);
+        parcel.writeByte((byte) (adult == null ? 0 : adult ? 1 : 2));
+        parcel.writeString(overview);
+        parcel.writeString(releaseDate);
     }
 }

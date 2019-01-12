@@ -2,21 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_base_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activitys.BaseActivity">
 
-        <fragment
-            android:id="@+id/activity_base_fragment"
-            android:name="burakekmen.com.moviesapp.ui.fragments.ListFragment"
+
+        <LinearLayout
+            android:id="@+id/activity_base_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp"
-            tools:layout="@layout/fragment_list" />
-
-
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical" />
 
 </LinearLayout>

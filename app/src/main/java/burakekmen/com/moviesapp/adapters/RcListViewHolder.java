@@ -14,7 +14,7 @@ import burakekmen.com.moviesapp.R;
  ***************************/
 public class RcListViewHolder extends RecyclerView.ViewHolder{
 
-    public ImageView moviePoster=null, detailArrow=null;
+    public ImageView moviePoster=null;
     public TextView txtMovieTitle=null, txtMoviewReleaseDate=null, txtMovieOverview=null, txtMoreInfo=null;
 
 
